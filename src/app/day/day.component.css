@@ -1,0 +1,85 @@
+.button {
+    transition-duration: 0.4s;
+    font-size: 15px;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+}
+
+.button-days {
+    transition-duration: 0.4s;
+    font-size: 15px;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: lightgoldenrodyellow;
+}
+
+.button-exercises {
+    transition-duration: 0.4s;
+    font-size: 15px;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: lightcyan;
+}
+
+.button-remove {
+    transition-duration: 0.4s;
+    font-size: 12px;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: red;
+    color: white;
+}
+
+.button-remove:hover {
+    background-color: maroon; 
+    color: white;
+}
+
+.button-save {
+    transition-duration: 0.4s;
+    font-size: 16px;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(20, 218, 109);
+    color: white;
+}
+
+.button-save:hover {
+    background-color: darkgreen; 
+    color: white;
+}
+  
+.button:hover {
+    background-color: pink; 
+    color: white;
+}
+
+.button-days:hover {
+    background-color: pink; 
+    color: white;
+}
+
+.button-exercises:hover {
+    background-color: pink; 
+    color: white;
+}
+
+.selected{
+    background-color: coral;
+    color: white;
+}
+
+.input {
+    font-size: 15px;
+    margin: 5px;
+}

@@ -1,0 +1,72 @@
+<button class = "button-save" (click) = "Save()">Save</button>
+<div style="display:inline-flex; width: 100%; height: 100%;">
+    <h2>Sessions</h2>
+    <ul class = "days"> 
+        <div *ngFor= "let day of days">
+            <button class = "button-days" (click)="OnSelect(day)" [class.selected]="day == selectedDay">
+                {{day}}
+            </button>
+        </div>
+        <button class = "button" (click) = "AddDay()">+</button>
+    </ul>
+
+    <div style = "margin-left: 2%">
+        <div *ngIf= selectedExercises>
+            <h2>
+                <input class = "input" [(ngModel)] = "selectedDay" (ngModelChange) = "OnDateChange()" placeholder= "Fill it in idiot">
+            </h2>
+            <h3><button class = "button-remove" (click) = "DeleteDay()">Remove</button></h3>
+            <h4>  {{data[selectedDay].Day}} </h4>
+            <ul class = "exercises">
+                <div *ngFor = "let exercise of selectedExercises">
+                    <button class = "button-exercises" (click) = "OnSelectExercise(exercise, false)" [class.selected]="exercise == selectedExercise && selectedDay == selectedSetDay"> 
+                        {{exercise}} 
+                    </button>
+                    <ul class = "sets">
+                        <div *ngFor = "let set of selectedSets[exercise]">
+                            <li> 
+                                {{set[0]}} - {{set[1]}}     
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </ul>
+            <button class = "button" (click) = "AddExercise()">Add Exercise</button>
+        </div>
+    </div>
+
+    <div style = "margin-left: 2%; margin-right: 2%">
+        <div *ngIf = selectedSet>
+            <h2>
+                <input class = "input" [(ngModel)]= "selectedExercise" (ngModelChange)="OnExerciseChange()" placeholder= "blank">
+            </h2>
+            <h3><button class = "button-remove" (click) = "DeleteExercise()">Remove</button></h3>
+            <ul class = "sets">
+                <div *ngFor = "let set of selectedSet; index as i">
+                    <div style = "display: flex; flex-flow:row">
+                        <input class = "input" [(ngModel)]= "set[0]" (ngModelChange)="OnSetChange()" placeholder = 0> 
+                        -  
+                        <input class = "input" [(ngModel)] = "set[1]" (ngModelChange)="OnSetChange()" placeholder = 0>
+                        <button class = "button" (click) = "DeleteSet(i)"> - </button>
+                    </div>
+                </div>
+                <button class = "button" (click) = "AddSet()">+</button>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf = selectedSet>
+        <app-charts 
+        [info] = "data"
+        [exercise] = "selectedExercise"></app-charts>
+        <ul>
+            <div *ngFor = "let e of selectedExercises">
+                <button class = "button" (click) = "OnSelectExercise(e, false)" [class.selected]="e == selectedExercise && selectedDay == selectedSetDay">{{e}}</button>
+                
+            </div>
+        </ul>
+    </div>
+</div>
+
+
+
+
